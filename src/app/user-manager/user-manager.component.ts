@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { DataService } from '../services/data.service';
+import { Data2Service } from '../services/data2.service';
 
 @Component({
   selector: 'app-user-manager',
@@ -11,15 +12,18 @@ export class UserManagerComponent implements OnInit {
 
   user: User = {
     username: '',
-    password: ''
+    password: '',
+    email: '',
+    aktiviran: false
   };
   currentUser: User;
   currentToken: string;
   preTokenCrap: Object;
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private data2: Data2Service) { }
 
   ngOnInit() {
     this.data.currentMessage.subscribe(token => this.currentToken = token);
+    this.data2.currentMessage.subscribe(usr => this.currentUser = usr);
   }
 }

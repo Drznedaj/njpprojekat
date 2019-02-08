@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RegisterServiceService} from '../services/register-service.service';
+import { RegisterServiceService } from '../services/register-service.service';
 import { User } from '../user';
 
 @Component({

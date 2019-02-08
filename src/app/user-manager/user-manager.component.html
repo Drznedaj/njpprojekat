@@ -1,10 +1,15 @@
 <div>
   <ng-container *ngIf="currentToken == undefined; else elseTemplate">
-    <app-login-button [(userToLogin)]="user" (tokenEvent)="dobijToken($event)"></app-login-button>
+    <app-login-button [(userToCheck)]="user" [(userToLogin)]="user" (tokenEvent)="dobijToken($event)"></app-login-button>
     <app-register-button [(userToRegister)]="user"></app-register-button>
     <div>
       <label>
         Username: <input [(ngModel)]="user.username" placeholder="username" />
+      </label>
+    </div>
+    <div>
+      <label>
+        E-mail: <input [(ngModel)]="user.email" placeholder="email" />
       </label>
     </div>
     <div>

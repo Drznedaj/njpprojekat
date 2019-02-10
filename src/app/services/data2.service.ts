@@ -7,7 +7,12 @@ import { User } from '../user';
 })
 export class Data2Service {
 
-  private messageSource = new BehaviorSubject(null);
+  private messageSource = new BehaviorSubject({
+    username: '',
+    password: '',
+    email: '',
+    aktiviran: false
+  });
   currentMessage = this.messageSource.asObservable();
   constructor() { }
   changeMessage(message: User) {

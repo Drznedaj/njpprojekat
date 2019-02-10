@@ -35,7 +35,10 @@ export class LoginService {
         observe: 'response'
       })
       .subscribe(
-        res => this.data.changeMessage(res.headers.getAll('Authorization')[0]));
+        res => {
+          this.data.changeMessage(res.headers.getAll('Authorization')[0]);
+          console.log(res.headers.getAll('Authorization')[0]);
+        });
   }
   public proveriUsera(user: User) {
     //console.log(user);
@@ -44,7 +47,7 @@ export class LoginService {
       let ux = (res as User);
       user.aktiviran = ux.aktiviran;
       this.data2.changeMessage(user);
-      console.log(user);
+      console.log(user.aktiviran);
     });
   }
   private handleError(error: HttpErrorResponse) {

@@ -18,12 +18,11 @@ export class UserManagerComponent implements OnInit {
   };
   currentUser: User;
   currentToken: string;
-  preTokenCrap: Object;
 
   constructor(private data: DataService, private data2: Data2Service) { }
 
   ngOnInit() {
     this.data.currentMessage.subscribe(token => this.currentToken = token);
-    this.data2.currentMessage.subscribe(usr => this.currentUser = usr);
+    this.data2.currentMessage.subscribe(usr => this.user = usr);
   }
 }

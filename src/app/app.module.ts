@@ -12,6 +12,8 @@ import { UserManagerComponent } from './user-manager/user-manager.component';
 import { UserComponent } from './user/user.component';
 import { RegisterServiceService } from './services/register-service.service';
 import { LoginService } from './services/login.service';
+import { FeedComponent } from './feed/feed.component';
+import { SlikaComponent } from './slika/slika.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { LoginService } from './services/login.service';
     RegisterButtonComponent,
     LoginButtonComponent,
     UserManagerComponent,
-    UserComponent
+    UserComponent,
+    FeedComponent,
+    SlikaComponent
   ],
   imports: [
     BrowserModule,

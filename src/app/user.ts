@@ -3,4 +3,6 @@ export class User {
     password: string;
     email: string;
     aktiviran: boolean;
+    kojePrati: User[];
+    kojiGaPrate: User[];
 }

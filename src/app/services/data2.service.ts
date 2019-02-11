@@ -11,7 +11,9 @@ export class Data2Service {
     username: '',
     password: '',
     email: '',
-    aktiviran: false
+    aktiviran: false,
+    kojePrati: null,
+    kojiGaPrate: null
   });
   currentMessage = this.messageSource.asObservable();
   constructor() { }

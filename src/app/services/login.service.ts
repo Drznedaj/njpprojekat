@@ -40,14 +40,17 @@ export class LoginService {
           console.log(res.headers.getAll('Authorization')[0]);
         });
   }
+
   public proveriUsera(user: User) {
     //console.log(user);
     let urlx = this.baseTraziUrl + user.username;
     this.http.get(urlx).subscribe(res => {
       let ux = (res as User);
       user.aktiviran = ux.aktiviran;
+      user.kojePrati = ux.kojePrati;
+      user.kojiGaPrate = ux.kojiGaPrate;
       this.data2.changeMessage(user);
-      console.log(user.aktiviran);
+      console.log(ux);
     });
   }
   private handleError(error: HttpErrorResponse) {

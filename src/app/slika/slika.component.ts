@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SlikaComponent implements OnInit {
 
+  slika: any;
+
   constructor() { }
 
   ngOnInit() {

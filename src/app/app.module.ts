@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ReceptComponent } from './recept/recept.component';
@@ -14,6 +14,7 @@ import { RegisterServiceService } from './services/register-service.service';
 import { LoginService } from './services/login.service';
 import { FeedComponent } from './feed/feed.component';
 import { SlikaComponent } from './slika/slika.component';
+import { ImageService } from './services/image.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { SlikaComponent } from './slika/slika.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RegisterServiceService, LoginService],
+  providers: [RegisterServiceService, LoginService, ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

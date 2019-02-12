@@ -1,3 +1,5 @@
+import { Slika } from "./slika";
+
 export class User {
     username: string;
     password: string;
@@ -5,4 +7,5 @@ export class User {
     aktiviran: boolean;
     kojePrati: User[];
     kojiGaPrate: User[];
+    slikeKorisnika: Slika[];
 }

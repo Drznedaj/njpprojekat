@@ -13,7 +13,8 @@ export class Data2Service {
     email: '',
     aktiviran: false,
     kojePrati: null,
-    kojiGaPrate: null
+    kojiGaPrate: null,
+    slikeKorisnika: null
   });
   currentMessage = this.messageSource.asObservable();
   constructor() { }

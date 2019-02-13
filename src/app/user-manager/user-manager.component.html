@@ -15,7 +15,7 @@
         Password: <input [(ngModel)]="user.password" placeholder="password" />
       </label>
     </div>
-    <app-login-button [(userToCheck)]="user" [(userToLogin)]="user" (tokenEvent)="dobijToken($event)">
+    <app-login-button [(userToLogin)]="user" (tokenEvent)="dobijToken($event)">
     </app-login-button>
     <app-register-button [(userToRegister)]="user"></app-register-button>
   </ng-container>

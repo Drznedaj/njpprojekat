@@ -19,6 +19,7 @@ export class Data2Service {
   currentMessage = this.messageSource.asObservable();
   constructor() { }
   changeMessage(message: User) {
+    console.log("cange usr2");
     this.messageSource.next(message);
   }
 }

@@ -22,13 +22,14 @@ const httpOptions = {
 })
 export class LoginService {
   loginUrl = 'api/login';
-  baseTraziUrl = 'api/korisnik/activate/1/';
+  baseTraziUrl = 'api/korisnik/activate/broj/';
   authToken: string;
 
   constructor(private http: HttpClient, private data: DataService, private data2: Data2Service) { }
 
   public loginujUsera(user: User) {
     // tslint:disable-next-line:max-line-length
+    console.log(user);
     this.http
       .post(this.loginUrl, user, {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

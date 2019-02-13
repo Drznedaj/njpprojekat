@@ -15,6 +15,7 @@ import { LoginService } from './services/login.service';
 import { FeedComponent } from './feed/feed.component';
 import { SlikaComponent } from './slika/slika.component';
 import { ImageService } from './services/image.service';
+import { CommentButtonComponent } from './comment-button/comment-button.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ImageService } from './services/image.service';
     UserManagerComponent,
     UserComponent,
     FeedComponent,
-    SlikaComponent
+    SlikaComponent,
+    CommentButtonComponent
   ],
   imports: [
     BrowserModule,

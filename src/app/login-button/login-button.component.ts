@@ -9,7 +9,7 @@ import { LoginService } from "../services/login.service";
 })
 export class LoginButtonComponent implements OnInit {
   @Input() userToLogin: User;
-  @Input() userToCheck: User;
+  //@Input() userToCheck: User;
 
   constructor(private loginService: LoginService, ) { }
 
@@ -17,10 +17,10 @@ export class LoginButtonComponent implements OnInit {
   }
 
   onClick() {
-    if (this.userToCheck) {
+    if (this.userToLogin) {
       console.log("loginujem");
       console.log(this.userToLogin);
-      this.loginService.proveriUsera(this.userToCheck);
+      this.loginService.proveriUsera(this.userToLogin);
       this.loginService.loginujUsera(this.userToLogin);
     }
   }

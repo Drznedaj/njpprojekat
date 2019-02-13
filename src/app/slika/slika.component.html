@@ -1,1 +1,15 @@
-<img src='slika' alt='Prikaz slike'>
+<img [src]="slikz.im" width="100" height="100" [alt]="slikz.ime" *ngIf="!isImageLoading; else noImageFound"
+    (click)="toggle()">
+{{slikz.komentari.length}} komentara
+<div *ngIf="togal">
+    <label>
+        Text komentara: <input [(ngModel)]="koment.tekstKomentara" placeholder="tekst" />
+    </label>
+    <button (click)="onClick()">Komentarisi</button>
+    <li *ngFor="let ko of slikz.komentari">
+        <span>{{ko.user}}</span>{{ko.tekstKomentara}}
+    </li>
+</div>
+<ng-template #noImageFound>
+    <img src="falback.jpg" alt="Fallbackimage">
+</ng-template>

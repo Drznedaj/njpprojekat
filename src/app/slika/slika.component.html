@@ -1,13 +1,14 @@
 <img [src]="slikz.im" width="100" height="100" [alt]="slikz.ime" *ngIf="!isImageLoading; else noImageFound"
     (click)="toggle()">
-{{slikz.komentari.length}} komentara
+{{slikz.komentari.length}} komentara {{slikz.brLajk}} likes
 <div *ngIf="togal">
     <label>
         Text komentara: <input [(ngModel)]="koment.tekstKomentara" placeholder="tekst" />
     </label>
     <button (click)="onClick()">Komentarisi</button>
+    <button (click)="onLike()">Like</button>
     <li *ngFor="let ko of slikz.komentari">
-        <span>{{ko.user}}</span>{{ko.tekstKomentara}}
+        <span>{{ko.user}}</span> commented: {{ko.tekstKomentara}}
     </li>
 </div>
 <ng-template #noImageFound>

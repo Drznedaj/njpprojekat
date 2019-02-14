@@ -11,6 +11,6 @@ export class CommentService {
 
   addComment(komentar: Komentar, usr: string, slik: string, token: string) {
     let url = this.baseurl + usr + '/' + slik;
-    this.http.post(url, komentar, { headers: new HttpHeaders({ 'Authorization': token, 'Content-Type': 'application/json' }) })
+    this.http.post(url, komentar, { headers: new HttpHeaders({ 'Authorization': token, 'Content-Type': 'application/json' }) }).subscribe(res => console.log(res));
   }
 }

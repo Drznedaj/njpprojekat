@@ -12,4 +12,11 @@ export class DataService {
   changeMessage(message: string) {
     this.messageSource.next(message);
   }
+
+  private messageSource2 = new BehaviorSubject(null);
+  currentMessage2 = this.messageSource2.asObservable();
+
+  scrolledToBot(message: boolean) {
+    this.messageSource2.next(message);
+  }
 }

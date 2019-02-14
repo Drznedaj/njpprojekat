@@ -1,0 +1,9 @@
+<input [(ngModel)]="query" placeholder="search term" />
+<button (click)="onClick()">Search</button>
+<div *ngIf="lista.length > 0">
+  <ul *ngFor="let l of lista">
+    <li>
+      {{l.username}} <button (click)="onFollow(l)">Zaprati</button>
+    </li>
+  </ul>
+</div>

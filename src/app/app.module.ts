@@ -16,6 +16,7 @@ import { FeedComponent } from './feed/feed.component';
 import { SlikaComponent } from './slika/slika.component';
 import { ImageService } from './services/image.service';
 import { CommentButtonComponent } from './comment-button/comment-button.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CommentButtonComponent } from './comment-button/comment-button.componen
     UserComponent,
     FeedComponent,
     SlikaComponent,
-    CommentButtonComponent
+    CommentButtonComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Sanitizer } from '@angular/core';
+import { Component, OnInit, Input, Sanitizer, HostListener } from '@angular/core';
 import { User } from '../user';
 import { ImageService } from '../services/image.service';
 import { sanitizeUrl } from '@angular/core/src/sanitization/sanitization';
 import { _sanitizeUrl } from '@angular/core/src/sanitization/url_sanitizer';
 import { DomSanitizer } from '@angular/platform-browser';
 import { analyzeAndValidateNgModules, UrlResolver } from '@angular/compiler';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-feed',
@@ -20,11 +21,13 @@ export class FeedComponent implements OnInit {
   isImageLoading: boolean;
   numImages: 10;
   bla: any;
+  scroll: false;
 
-  constructor(private imgser: ImageService, private san: DomSanitizer) { }
+  constructor(private imgser: ImageService, private san: DomSanitizer, private data: DataService) { }
 
   ngOnInit() {
     this.getImageFromService();
+    this.data.currentMessage2.subscribe(s => this.scroll = s);
   }
 
   createImageFromBlob(image: Blob) {
@@ -58,7 +61,8 @@ export class FeedComponent implements OnInit {
             'ime': ime,
             'komentari': komen,
             'cija': this.useri[i].username,
-            'pat': path
+            'pat': path,
+            'brLajk': this.useri[i].slikeKorisnika[j].brojLajkova
           });
           this.isImageLoading = false;
         }, error => {

@@ -14,6 +14,7 @@ import { DataService } from '../services/data.service';
 })
 export class FeedComponent implements OnInit {
 
+  @Input() profilna: any;
   @Input() useri: User[];
   @Input() token: string;
   images: any[] = [];
@@ -22,12 +23,12 @@ export class FeedComponent implements OnInit {
   numImages: 10;
   bla: any;
   scroll: false;
+  weOnProfile: boolean = false;
 
   constructor(private imgser: ImageService, private san: DomSanitizer, private data: DataService) { }
 
   ngOnInit() {
     this.getImageFromService();
-    this.data.currentMessage2.subscribe(s => this.scroll = s);
   }
 
   createImageFromBlob(image: Blob) {

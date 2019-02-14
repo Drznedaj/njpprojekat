@@ -51,6 +51,7 @@ export class LoginService {
       user.kojePrati = ux.kojePrati;
       user.kojiGaPrate = ux.kojiGaPrate;
       user.slikeKorisnika = ux.slikeKorisnika;
+      user.profilna = ux.profilna;
       this.data2.changeMessage(user);
       console.log(ux);
     });

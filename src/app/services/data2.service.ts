@@ -14,12 +14,12 @@ export class Data2Service {
     aktiviran: false,
     kojePrati: null,
     kojiGaPrate: null,
-    slikeKorisnika: null
+    slikeKorisnika: null,
+    profilna: null
   });
   currentMessage = this.messageSource.asObservable();
   constructor() { }
   changeMessage(message: User) {
-    console.log("cange usr2");
     this.messageSource.next(message);
   }
 }

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { AppComponent } from './app.component';
 import { ReceptComponent } from './recept/recept.component';
@@ -17,6 +18,7 @@ import { SlikaComponent } from './slika/slika.component';
 import { ImageService } from './services/image.service';
 import { CommentButtonComponent } from './comment-button/comment-button.component';
 import { SearchComponent } from './search/search.component';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +32,14 @@ import { SearchComponent } from './search/search.component';
     FeedComponent,
     SlikaComponent,
     CommentButtonComponent,
-    SearchComponent
+    SearchComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ScrollingModule
   ],
   providers: [RegisterServiceService, LoginService, ImageService],
   bootstrap: [AppComponent]

@@ -17,7 +17,8 @@ export class UserManagerComponent implements OnInit {
     aktiviran: false,
     kojePrati: null,
     kojiGaPrate: null,
-    slikeKorisnika: null
+    slikeKorisnika: null,
+    profilna: null
   };
   currentUser: User;
   currentToken: string;

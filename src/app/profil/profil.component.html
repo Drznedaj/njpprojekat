@@ -1,0 +1,21 @@
+<div>
+    <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+    <button (click)="fileInput.click()">Select Profilnu</button>
+    <button (click)="onUpload()">Upload profilnu</button>
+</div>
+Followers: {{user.kojiGaPrate ? user.kojiGaPrate.length : 0}} | Following:
+{{user.kojePrati ? user.kojePrati.length : 0}}
+<div>
+    <div>
+        <label>
+            Password: <input [(ngModel)]="tempUser.password" placeholder="password" />
+        </label>
+    </div>
+    <button (click)="onPass()">Change password</button>
+    <div>
+        <label>
+            Email: <input [(ngModel)]="tempUser.email" placeholder="email" />
+        </label>
+    </div>
+    <button (click)="onEma()">Change email</button>
+</div>

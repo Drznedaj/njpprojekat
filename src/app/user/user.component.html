@@ -1,9 +1,20 @@
+<img [src]="profilna.im" width="100" height="100" [alt]="profilna.ime" *ngIf="profilna != null; else noImageFound"
+    (click)="goProfile()">
+
+<ng-template #noImageFound>
+    <img src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fassets3.thrillist.com%2Fv1%2Fimage%2F1299823%2Fsize%2Ftmg-article_default_mobile.jpg&f=1"
+        width="100" height="100" alt="Fallbackimage" (click)="goProfile()">
+</ng-template>
+
 <div>
     <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
     <button (click)="fileInput.click()">Select File</button>
     <button (click)="onUpload()">Upload!</button>
 </div>
-<div>
+<div *ngIf="!weOnProfile; else profajl">
     <app-search [user]="user" [(token)]="token"></app-search>
-    <app-feed [(useri)]='user.kojePrati' [(token)]="token"></app-feed>
+    <app-feed [profilna]="user.profilna" [(useri)]='user.kojePrati' [(token)]="token"></app-feed>
 </div>
+<ng-template #profajl>
+    <app-profil [user]="user" [token]="token"></app-profil>
+</ng-template>

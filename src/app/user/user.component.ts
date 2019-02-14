@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { ImageService } from '../services/image.service';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Data2Service } from '../services/data2.service';
 
 @Component({
   selector: 'app-user',
@@ -9,14 +12,40 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 })
 export class UserComponent implements OnInit {
 
-  @Input() user: User;
+  user: User;
   @Input() token: string;
 
+  profilna: any = {
+    'im': null,
+    'ime': ''
+  };
   selectedFile: File;
+  weOnProfile: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private imgser: ImageService, private san: DomSanitizer, private data: Data2Service) { }
 
   ngOnInit() {
+    this.data.currentMessage.subscribe(u => {
+      console.log(u);
+      this.user = u;
+      let path;
+      let ime;
+      if (this.user.profilna) {
+        path = this.user.profilna.path;
+        ime = this.user.profilna.ime
+      } else {
+        path = '';
+        ime = '';
+      }
+
+      let url = 'api/korisnik/slike/get/' + path;
+      this.imgser.getImage(url, this.token).subscribe(data => {
+        let unsafe = URL.createObjectURL(data);
+        let imaa = this.san.bypassSecurityTrustResourceUrl(unsafe);
+        this.profilna.im = imaa;
+        this.profilna.ime = ime;
+      });
+    })
   }
 
   onFileChanged(event) {
@@ -34,6 +63,10 @@ export class UserComponent implements OnInit {
     let url = 'api/korisnik/slike/stavi/' + this.user.username;
     this.http.post(url, upData, { headers: new HttpHeaders({ 'Authorization': this.token }) }).subscribe(res => console.log(res));
     // this.http.post(url, {}, { headers: new HttpHeaders({ 'Authorization': this.token }), params: new HttpParams(this.selectedFile) })
+  }
+
+  goProfile() {
+    this.weOnProfile = !this.weOnProfile;
   }
 
 }
